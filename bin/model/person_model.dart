@@ -1,6 +1,6 @@
 import '../abstract_example.dart';
 
-class Person {
+class Person implements Activity {
   static int countWoman = 0; //static truy xuất bằng class name
   static int countMan = 0;
   String name;
@@ -52,4 +52,20 @@ class Person {
   @override
   String toString() => 'Person(name: $name, age: $_age, isMan: $isMan)';
 
+  @override
+  void run() {
+    print('$name runs slowly.');
+  }
+
+  @override
+  void eat() {
+    print('The person who called $name is eating');
+  }
+
+  @override
+  void detail() {
+    //implements Activity -> interface -> bắt buộc phải override lại tất cả các method, abstract class thì có thể không override method đã hiện thực
+    // TODO: implement detail
+    print('class Person implements Activity');
+  }
 }
