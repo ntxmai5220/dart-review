@@ -2,13 +2,15 @@ import 'abstract_example.dart';
 import 'mixin_example.dart';
 import 'model/animal_model.dart';
 import 'model/person_model.dart';
+import 'async_await_example.dart' as test_task;
 
 void main(List<String> arguments) {
   //print('Hello world!');
   // testPerson();
   // testAnimal();
   // testAbstract();
-  testMixin();
+  //testMixin();
+  testTask();
 }
 
 void testPerson() {
@@ -65,4 +67,21 @@ void testMixin() {
   b.show();
 
   b.getEdges(b.type);
+}
+
+void testTask() async {
+  int a = await test_task.firstTask();
+  print('out $a');                    //đợi sau khi firstTask trả kết quả
+  //test_task.secondTask();
+}
+
+// dùng then để nhận giá trị của async giúp các công việc khác không bị delay theo như ví dụ testTask
+void testTask2() {
+  int a = 0;
+  test_task.firstTask().then((value) {
+    print('a = $a');
+    a = value;
+    print('a = value = $a');
+  });
+  print('out $a');          //thực thi cũng lúc với firstTask
 }
