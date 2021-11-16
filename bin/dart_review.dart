@@ -1,8 +1,12 @@
+import 'dart:io';
+
 import 'abstract_example.dart';
 import 'mixin_example.dart';
 import 'model/animal_model.dart';
 import 'model/person_model.dart';
 import 'async_await_example.dart' as test_task;
+import 'yield_example.dart';
+import 'extension_example.dart';
 
 void main(List<String> arguments) {
   //print('Hello world!');
@@ -10,7 +14,11 @@ void main(List<String> arguments) {
   // testAnimal();
   // testAbstract();
   //testMixin();
-  testTask();
+  // testTask();
+  //testYield();
+  'Mai'.printFullName();
+  num re = 75.half();
+  print(re);
 }
 
 void testPerson() {
@@ -71,7 +79,7 @@ void testMixin() {
 
 void testTask() async {
   int a = await test_task.firstTask();
-  print('out $a');                    //đợi sau khi firstTask trả kết quả
+  print('out $a'); //đợi sau khi firstTask trả kết quả
   //test_task.secondTask();
 }
 
@@ -83,5 +91,17 @@ void testTask2() {
     a = value;
     print('a = value = $a');
   });
-  print('out $a');          //thực thi cũng lúc với firstTask
+  print('out $a'); //thực thi cũng lúc với firstTask
+}
+
+void testYield() {
+  asynchronousNaturalsTo(4).forEach((element) {
+    //sleep(Duration(seconds: 1));
+    print('async $element');
+  });
+
+  naturalsTo(4).forEach((element) {
+    //sleep(Duration(seconds: 1));
+    print(element);
+  });
 }
