@@ -1,6 +1,11 @@
+import 'abstract_example.dart';
+import 'model/animal_model.dart';
+
 enum Type { square, triangle, rectangle, circle }
 
-mixin Shape {
+mixin Shape {//on X
+  // on X => nếu sử dụng on sẽ giới hạn các class sử dụng mixin Shape này lại
+  //là các class con của X
   int getEdges(type) {
     switch (type) {
       case Type.square:
@@ -20,7 +25,10 @@ mixin Shape {
 }
 
 class A with Shape {
-  //sử dụng mixin và with để gộp nhưng gì ở Shape vào class A
+  // sử dụng with với class không có constructor
+  //sử dụng mixin và with để gộp nhưng gì ở Shape (mixin) vào class A
+  //implements thì phải override tất cả
+  //có thể override hoặc không override thì dùng luôn
   int id;
   Type type;
   A({
