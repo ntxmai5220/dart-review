@@ -1,12 +1,14 @@
 import 'abstract_example.dart';
+import 'mixin_example.dart';
 import 'model/animal_model.dart';
 import 'model/person_model.dart';
 
 void main(List<String> arguments) {
   //print('Hello world!');
-  testPerson();
-  testAnimal();
-  testAbstract();
+  // testPerson();
+  // testAnimal();
+  // testAbstract();
+  testMixin();
 }
 
 void testPerson() {
@@ -53,4 +55,14 @@ void testAbstract() {
   man.detail();
   dog.eat();
   man.eat();
+}
+
+void testMixin() {
+  A a = A(id: 1, type: Type.rectangle);
+  a.show();
+
+  A b = A(id: 2, type: Type.triangle);
+  b.show();
+
+  b.getEdges(b.type);
 }

@@ -32,9 +32,9 @@ class A with Shape {
     print('A has ${super.getEdges(type)} edges');
   }
 
-  @override
-  int getEdges(type) {
-    // TODO: implement getEdges
-    return super.getEdges(type);
-  }
+  // @override
+  // int getEdges(type) {
+  //   // TODO: implement getEdges
+  //   return super.getEdges(type);
+  // }
 }
